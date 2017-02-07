@@ -1,23 +1,36 @@
 package com.naresh.controller;
 
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.ticket.exception.ServiceException;
+import com.ticket.exception.ValidatorException;
+import com.ticket.model.Issue;
+import com.ticket.model.User;
 import com.ticket.service.CreateTicketService;
 
 @Controller
 @RequestMapping("/tickets")
 public class CreateTicketController {
 	private static final Logger LOGGER = Logger.getLogger(CreateTicketController.class.getName());
-
+	CreateTicketService cts=new CreateTicketService();
+	
 	@GetMapping
-	public void index() {
-		System.out.println("TicketController->index");
+	public String index(ModelMap modelmap) throws ServiceException {
+		System.out.println("department->index");
+		Issue issues=new Issue();
+		List<Issue> issue;
+		issue = cts.findUserDetails(issues);
+		modelmap.addAttribute("User_Details", issue);
+		return "index.jsp";
 	}
+
+	
 
 	@GetMapping("/register")
 	public String registerNewUser(@RequestParam("Name") String name, @RequestParam("EmailId") String emailId,
@@ -107,22 +120,18 @@ public class CreateTicketController {
 	}
 
 	@GetMapping("/find_user_details")
-	public String findUserDetails(@RequestParam("EmailId") String emailId, @RequestParam("Password") String password)
+	public String findUserDetails(@RequestParam("EmailId") String emailId, @RequestParam("Password") String password,ModelMap map)
 			throws ServiceException {
 
 		System.out.println("TicketController-> updateTicket- name:EmailId" + emailId + ",Password:" + password);
 		CreateTicketService createTicketService = new CreateTicketService();
-
-		try {
-			createTicketService.findUserDetails(emailId, password);
-			return "redirect:../user_details.jsp";
-
-		} catch (ServiceException e) {
-
-			LOGGER.log(Level.SEVERE, "Viewing  Ticket Exception Occured!!", e);
-			return "find_user_details.jsp";
-
-		}
+		Issue issue=new Issue();
+		User user=new User();
+		user.setId(4);
+		issue.setUserId(user);
+		List<Issue> i=createTicketService.findUserDetails(issue);
+		map.addAttribute("list", i);
+		return "../find_user_tickets.jsp";
 
 	}
 
@@ -165,6 +174,7 @@ public class CreateTicketController {
 		}
 
 	}
+	
 
 	@GetMapping("/find_employee_tickets")
 	public String findEmployeeTickets(@RequestParam("EmailId") String emailId, @RequestParam("Password") String password)
@@ -175,6 +185,7 @@ public class CreateTicketController {
 
 		try {
 			createTicketService.findEmployeeTickets(emailId, password);
+			
 			return "redirect:../find_employee_tickets_found.jsp";
 
 		} catch (ServiceException e) {
