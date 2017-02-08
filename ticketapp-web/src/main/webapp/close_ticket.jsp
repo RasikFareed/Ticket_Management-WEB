@@ -14,5 +14,6 @@
 	    <h3>Issue Id:</h3><input type="text" name="IssueId" required/><br>
 		<button type="submit"><h4>Close My Ticket</h4></button>
 	</form>
+	${ERROR}
 </body>
 </html>

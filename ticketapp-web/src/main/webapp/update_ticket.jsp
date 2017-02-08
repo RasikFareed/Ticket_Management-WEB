@@ -15,5 +15,6 @@
 	   <h3>Update Description:</h3> <input type="text" name="UpdateDescription" required/><br>
 		<button type="submit"><h4>Update Ticket</h4></button>
 	</form>
+	${ERROR}
 </body>
 </html>

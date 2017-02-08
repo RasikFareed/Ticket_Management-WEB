@@ -15,5 +15,6 @@
 	   <h3>Ticket Solution:</h3><input type="text" name="TicketSolution" required/><br>
 		<button type="submit"><h4>Give solution to ticket</h4></button>
 	</form>
+	${ERROR}
 </body>
 </html>

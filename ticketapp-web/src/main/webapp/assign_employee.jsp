@@ -34,6 +34,7 @@ Connection connection =
         </select><br>
 		<button type="submit"><h4>Assign Employee</h4></button>
 	</form>
+	${ERROR}
 		<%
 //**Should I input the codes here?**
         }

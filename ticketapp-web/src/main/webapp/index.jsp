@@ -17,5 +17,6 @@
      Registration</button>
      <button onclick="location.href='login.jsp'" type="button">
      Login</button>
+     ${ERROR}
 </body>
 </html>

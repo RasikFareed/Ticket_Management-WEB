@@ -13,5 +13,6 @@
 	    <h3>Password :</h3> <input type="password" name="Password" required/><br>
 		<button type="submit"><h4>Login</h4></button>
 	</form>
+	${ERROR}
 </body>
 </html>

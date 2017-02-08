@@ -23,7 +23,7 @@ Connection connection =
 %>
 
 	<form action="/tickets/create_ticket" method="GET">
-	  <h3>Email Id :</h3>   <input type="text" name="EmailId" required autofocus/>
+ <h3>Email Id :</h3>   <input type="text" name="EmailId" required autofocus/>
 	    <h3>Password :</h3> <input type="password" name="Password" required/>
 	    <h3>Subject:</h3><input type="text" name="Subject" required/>
 	   <h3>Description:</h3> <input type="text" name="Description" required/>
@@ -39,6 +39,7 @@ Connection connection =
  					 <input type="radio" name="Priority" value="Low"> Low <br>
 		<button type="submit"><h4>Create Ticket</h4></button>
 	</form>
+	${ERROR}
 	
 	<%
 //**Should I input the codes here?**

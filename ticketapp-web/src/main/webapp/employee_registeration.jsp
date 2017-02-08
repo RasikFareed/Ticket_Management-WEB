@@ -16,8 +16,8 @@
 	 <h3>Email Id :</h3> <input type="text" name="EmailId" required />
 	<h3>Password :</h3>  <input type="password" name="Password" required /><br>
 	 <button type="submit"><h4>Register</h4></button>
-	
 	</form>
+	${ERROR}
 	<a href="login.jsp" class="button">Click here to Login</a>
 </body>
 </html>
