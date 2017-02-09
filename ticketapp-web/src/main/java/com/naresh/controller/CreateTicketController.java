@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.ticket.exception.ServiceException;
+import com.ticket.model.Employee;
 import com.ticket.model.Issue;
 import com.ticket.model.User;
 import com.ticket.service.CreateTicketService;
@@ -86,7 +87,7 @@ public class CreateTicketController {
 		} catch (ServiceException e) {
 			map.addAttribute("ERROR", e.getMessage());
 			LOGGER.log(Level.SEVERE, "Ticket Creation Failed Exception Occured!!", e);
-			return "redirect:../create_ticket.jsp";
+			return "../create_ticket.jsp";
 
 		}
 
@@ -207,12 +208,13 @@ public class CreateTicketController {
 		System.out.println("TicketController-> updateTicket- name:EmailId" + emailId + ",Password:" + password);
 		CreateTicketService createTicketService = new CreateTicketService();
 
-		try {
-			createTicketService.findEmployeeTickets(emailId, password);
-			
-			return "redirect:../find_employee_tickets_found.jsp";
-
-		} catch (ServiceException e) {
+		try{
+						
+			List<Issue> i=createTicketService.findEmployeeTickets(emailId, password);
+			map.addAttribute("list", i);
+			return "../find_employee_tickets.jsp";
+		}
+ catch (ServiceException e) {
 			map.addAttribute("ERROR", e.getMessage());
 			LOGGER.log(Level.SEVERE, "Viewing  Ticket Exception Occured!!", e);
 			return "../find_employee_tickets.jsp";
