@@ -13,7 +13,7 @@
 	<form action="/tickets/register" method="GET">
 	
 	<h3>Name :</h3> <input type="text" name="Name" required autofocus />
-	 <h3>Email Id :</h3> <input type="text" name="EmailId" pattern="[a-zA-Z]{3,}@[a-zA-Z]{3,}[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,}" required placeholder="yourmail@yourdomain.com" required />
+	 <h3>Email Id :</h3> <input type="email" name="EmailId" required placeholder="yourmail@yourdomain.com" required />
 	<h3>Password :</h3>  <input type="password" name="Password" required /><br>
 	 <button type="submit"><h4>Register</h4></button>
 	</form>

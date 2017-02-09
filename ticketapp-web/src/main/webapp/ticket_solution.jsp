@@ -9,7 +9,7 @@
 </head>
 <body>
 <form action="/tickets/ticket_solution" method="GET">
-	  <h3>Email Id :</h3>   <input type="text" name="EmailId" pattern="[a-zA-Z]{3,}@[a-zA-Z]{3,}[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,}" required placeholder="yourmail@yourdomain.com" required autofocus/>
+	  <h3>Email Id :</h3>   <input type="email" name="EmailId"  required placeholder="yourmail@yourdomain.com" required autofocus/>
 	    <h3>Password :</h3> <input type="password" name="Password" required/>
 	    <h3>Issue Id:</h3><input type="text" name="IssueId" required/>
 	   <h3>Ticket Solution:</h3><input type="text" name="TicketSolution" required/><br>

@@ -10,7 +10,7 @@
 </head>
 <body>
 <form action="/tickets/find_employee_tickets" method="GET">
-	  <h3>Email Id :</h3>   <input type="text" name="EmailId" pattern="[a-zA-Z]{3,}@[a-zA-Z]{3,}[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,}" required placeholder="yourmail@yourdomain.com" autofocus/>
+	  <h3>Email Id :</h3>   <input type="email" name="EmailId"  required placeholder="yourmail@yourdomain.com" autofocus/>
 	    <h3>Password :</h3> <input type="password" name="Password" required/><br>
 		<button type="submit"><h4>Find My Tickets</h4></button>
 	</form>

@@ -12,8 +12,8 @@
 
 	<form action="/tickets/register_employee" method="GET">
 	
-	<h3>Name :</h3> <input type="text" name="Name" pattern="[a-zA-Z]{3,}@[a-zA-Z]{3,}[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,}" required placeholder="yourmail@yourdomain.com" required autofocus />
-	 <h3>Email Id :</h3> <input type="text" name="EmailId" required />
+	<h3>Name :</h3> <input type="text" name="Name" required  required autofocus />
+	 <h3>Email Id :</h3> <input type="email" name="EmailId" placeholder="yourmail@yourdomain.com" required />
 	<h3>Password :</h3>  <input type="password" name="Password" required /><br>
 	 <button type="submit"><h4>Register</h4></button>
 	</form>
