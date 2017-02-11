@@ -1,13 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
+ <!DOCTYPE html>
+<html >
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta charset="UTF-8">
+  <title>Employee Menu</title>
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<title>View Ticket</title>
- <style>
+
+  
+      <style>
       /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
       @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 .btn { display: inline-block; *display: inline; *zoom: 1; padding: 4px 10px 4px; margin-bottom: 0; font-size: 13px; line-height: 18px; color: #333333; text-align: center;text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75); vertical-align: middle; background-color: #f5f5f5; background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6); background-image: -ms-linear-gradient(top, #ffffff, #e6e6e6); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6)); background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6); background-image: -o-linear-gradient(top, #ffffff, #e6e6e6); background-image: linear-gradient(top, #ffffff, #e6e6e6); background-repeat: repeat-x; filter: progid:dximagetransform.microsoft.gradient(startColorstr=#ffffff, endColorstr=#e6e6e6, GradientType=0); border-color: #e6e6e6 #e6e6e6 #e6e6e6; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); border: 1px solid #e6e6e6; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); cursor: pointer; *margin-left: .3em; }
@@ -47,10 +49,12 @@ body {
 .login h1 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
 
 input { 
-	width:100%;
+	width: 100%; 
+	margin-bottom: 10px; 
 	background: rgba(0,0,0,0.3);
 	border: none;
 	outline: none;
+	padding: 10px;
 	font-size: 13px;
 	color: #fff;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
@@ -64,62 +68,25 @@ input {
 	transition: box-shadow .5s ease;
 }
 input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }
-#center-div
-{
-  position: absolute;
-  margin: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100px;
-  height: 100px;
-  background-color: #ccc;
-  border-radius: 3px;
-}
+
     </style>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 
 </head>
+
 <body>
-<div class="login" style="margin-top:-300px;">
-	<form action="/tickets/find_user_details" method="GET">
-	  <h3>Email Id :</h3>   <input type="email" name="EmailId" required placeholder="yourmail@yourdomain.com" required autofocus/>
-	    <h3>Password :</h3> <input type="password" name="Password" required/><br>
-		<button type="submit" class="btn btn-primary btn-block" style="margin-top:10px;"><h4>Find My Tickets</h4></button>
-	</form>
-	${ERROR}
-	
-	<h3>User Details</h3>
-	<%-- 	To Test Values : ${User_Details} --%>
-	<table border="1">
-		<thead>
-			<tr>
-				<th>id</th>
-				<th>User_id</th>
-				<th>Subject</th>
-				<th>Description</th>
-				<th>Status</th>
-				<th>Priority</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="c" items="${list}" varStatus="i">
-				<tr>
-					<td>${c.id}</td>
-					<td>${c.userId.getId()}</td>
-					<td>${c.subject}</td>
-					<td>${c.description}</td>
-					<td>${c.status}</td>
-					<td>${c.priority}</td>
-					<td>Edit</td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-	<br />
-	</div>
+  <div class="login">
+	<h1>Employee Menu</h1>
+    <button type="button" onclick="location.href='find_employee_tickets.jsp'" class="btn btn-primary btn-block btn-large">View My Tickets</button>
+    <br/>
+    <button type="button" onclick="location.href='ticket_solution.jsp'" class="btn btn-primary btn-block btn-large">Reply to Tickets</button>
+    <br/>
+    <button type="button" onclick="location.href='assign_employee.jsp'" class="btn btn-primary btn-block btn-large">Reassign Ticket</button>
+    <br/>
+</div>
+  
+    <script src="js/index.js"></script>
+
 </body>
 </html>
-

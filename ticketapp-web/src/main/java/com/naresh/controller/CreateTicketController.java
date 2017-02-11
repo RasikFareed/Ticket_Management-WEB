@@ -53,7 +53,7 @@ public class CreateTicketController {
 	}
 	
 	@GetMapping("/login")
-	public String registerNewUser(@RequestParam("EmailId") String emailId,
+	public String login(@RequestParam("EmailId") String emailId,
 			@RequestParam("Password") String password,ModelMap map) throws ServiceException {
 	
 		System.out.println("TicketController-> register-  "+",emailid=" + emailId + ",password:" + password);
@@ -69,6 +69,26 @@ public class CreateTicketController {
 			return "redirect:../MainPage.jsp";
 	}
 
+	@GetMapping("/employeeLogin")
+	public String employeeLogin(@RequestParam("EmailId") String emailId,
+			@RequestParam("Password") String password,ModelMap map) throws ServiceException {
+	
+		System.out.println("TicketController-> register-  "+",emailid=" + emailId + ",password:" + password);
+
+			try {
+				cts.employeeLogin(emailId, password);
+				
+			} catch (ServiceException e) {
+				map.addAttribute("ERROR", e.getMessage());
+				LOGGER.log(Level.SEVERE, "Registration Failed Exception Occured!!", e);
+				return "../EmployeeLogin.jsp";
+			}
+			return "redirect:../MainPage.jsp";
+	}
+	
+	
+	
+	
 	@GetMapping("/create_ticket")
 	public String createTicket(@RequestParam("EmailId") String emailId, @RequestParam("Password") String password,
 			@RequestParam("Subject") String subject, @RequestParam("Description") String description,
@@ -125,12 +145,12 @@ public class CreateTicketController {
 
 		try {
 			createTicketService.updateClose(emailId, password, issueId);
-			return "redirect:../ticket_closed.jsp";
+			return "../ticket_closed.jsp";
 
 		} catch (ServiceException e) {
 			map.addAttribute("ERROR", e.getMessage());
 			LOGGER.log(Level.SEVERE, "Closing TicketException Occured!!", e);
-			return "../update_close.jsp";
+			return "../close_ticket.jsp";
 
 		}
 
@@ -231,7 +251,7 @@ public class CreateTicketController {
 
 		try {
 			createTicketService.deleteTickets(emailId, password, issueId);
-			return "redirect:../tickest_deleted.jsp";
+			return "../ticket_deleted.jsp";
 
 		} catch (ServiceException e) {
 			map.addAttribute("ERROR", e.getMessage());
