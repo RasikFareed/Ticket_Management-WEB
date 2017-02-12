@@ -8,6 +8,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.ticket.dao.UserDAO;
 import com.ticket.exception.ServiceException;
 import com.ticket.model.Employee;
 import com.ticket.model.Issue;
@@ -166,7 +168,9 @@ public class CreateTicketController {
 		Issue issue=new Issue();
 	
 		User user=new User();
-		user.setId(4);
+		UserDAO userDao=new UserDAO();
+		user.setId(userDao.findUserId(emailId).getId());
+		
 		issue.setUserId(user);
 		List<Issue> i=createTicketService.findUserDetails(issue);
 		map.addAttribute("list", i);
