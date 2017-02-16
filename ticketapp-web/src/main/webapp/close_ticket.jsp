@@ -84,8 +84,6 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
 <body>
 <div class="login" style="margin-top:-300px;">
 <form action="/tickets/update_close" method="GET">
-	  <h3>Email Id :</h3>   <input type="email" name="EmailId" required placeholder="yourmail@yourdomain.com" required autofocus/>
-	    <h3>Password :</h3> <input type="password" name="Password" required/>
 	    <h3>Issue Id:</h3><input type="text" name="IssueId" required/><br>
 		<button type="submit" class="btn btn-primary btn-block" style="margin-top:10px;"><h4>Close My Ticket</h4></button>
 	</form>

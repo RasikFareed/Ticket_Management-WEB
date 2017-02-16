@@ -97,8 +97,6 @@ Connection connection =
        resultset =statement.executeQuery("SELECT ID FROM EMPLOYEES") ;
 %>
 <form action="/tickets/assign_employee" method="GET">
-	  <h3>Email Id :</h3>   <input type="email" name="EmailId" required placeholder="yourmail@yourdomain.com" required autofocus/>
-	    <h3>Password :</h3> <input type="password" name="Password" required/>
 	    <h3>Issue Id:</h3><input type="text" name="IssueId" required/>
 	    <h3>Employee Id:</h3>
 	    <select name="EmployeeId" required>

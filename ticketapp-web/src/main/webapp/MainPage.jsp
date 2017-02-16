@@ -76,6 +76,7 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
 </head>
 
 <body>
+<div align="right"><button type="button" onclick="location.href='index.jsp'" class="btn btn-primary btn-block btn-large" style="width:80px;">Logout</button></div>
   <div class="login">
 	<h1>Employee Menu</h1>
     <button type="button" onclick="location.href='create_ticket.jsp'" class="btn btn-primary btn-block btn-large">Create Ticket</button>
